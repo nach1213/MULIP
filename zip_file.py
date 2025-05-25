@@ -4,7 +4,6 @@ def reverse_rle(bytestr: bytes):
         retbytes = retbytes + (bytestr[i]) * int.to_bytes(bytestr[i - 1], 1, "big")
     return retbytes
 
-
 def rle(bytestr: bytes):
     retbytes = b""
     count = 1
@@ -39,6 +38,24 @@ def SA(bytestr: bytes):
     suffixes.sort(key=lambda pair: pair[0])
     return [index for (_, index) in suffixes]
 
+
+def unzip_file(bytes_:bytes):
+    bytes_ = ''.join(f'{b:08b}' for b in bytes_)
+    i=0
+    ind = 0
+    while i<256:
+        if bytes_[ind] == 0:
+            ind+=1
+            i += 1
+            continue
+
+
+
+
+
+
+
 if __name__ == "__main__":
-    print(rle(b"A" * 260))
-    print(BWT(b"BANANA"))
+    print((rle(b"A" * 2)))
+    print(rle(BWT(b"BANANA")))
+
